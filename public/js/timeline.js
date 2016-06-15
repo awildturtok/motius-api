@@ -31,6 +31,9 @@ $(function()
 
     $(".project").click(function ()
     {
+        if($(this).find(".timeline").is(":visible"))
+            return;
+
         $(".timeline").slideUp();
         $(this).find(".timeline").slideDown();
     });
