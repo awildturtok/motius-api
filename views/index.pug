@@ -1,6 +1,25 @@
 extends layout
+block scripts
+
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.min.js')
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.min.css',rel='stylesheet',type='text/css')
+    script(src='js/timeline.js')
 
 block content
-  h1= title
-  p Welcome to #{title}
-  each project in #{projects}
+    div.container
+        h1= title
+
+        each project,index in contents
+            div(class='card project',data-project=JSON.stringify(project))
+                .card-header
+                    h4.card-title= project.title
+                .card-block
+                    p.card-text!= project.body
+                    .timeline
+
+
+
+
+
+
+
